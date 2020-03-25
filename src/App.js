@@ -12,13 +12,16 @@ class App extends Component {
     currentUser: null
   };
 
+  //izbaci iz auth-a
   unsubscribedFromAuth = null;
 
+  //auth handler
   componentDidMount() {
     this.unsubscribedFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
+        //storing data in state
         userRef.onSnapshot(snapShot => {
           this.setState({
             currentUser: {

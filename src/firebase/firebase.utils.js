@@ -14,17 +14,23 @@ const config = {
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
+  //if there is no user(null) just return(do nothing)
   if (!userAuth) return;
 
   const userRef = firestore.doc(`users/${userAuth.uid}`);
 
+  //trazi iz baze podataka(async) snepsot
   const snapShot = await userRef.get();
 
+  //exists je properti autha koji je dobijen snepsotom ^
+  //da li postoji u snapShot exists prop?
   if (!snapShot.exists) {
+    //trazi displayName i email iz userAuth --- dakle nije klasicna konstanta kao const ili let
     const { displayName, email } = userAuth;
     const createdAt = new Date();
 
     try {
+      // .set is create method
       await userRef.set({
         displayName,
         email,
@@ -36,6 +42,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     }
   }
 
+  //vraca userRef
   return userRef;
 };
 
