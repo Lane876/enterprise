@@ -1,5 +1,5 @@
 import CartActionTypes from "./cart.types";
-import { addItemToCart } from "./cart.utils";
+import { addItemToCart, removeItemFromart } from "./cart.utils";
 
 const INITIAL_STATE = {
   hidden: true,
@@ -19,9 +19,16 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         cartItems: addItemToCart(state.cartItems, action.payload)
       };
 
+    case CartActionTypes.REMOVE_ITEM:
+      return {
+        ...state,
+        cartItems: removeItemFromart(state.cartItems, action.payload)
+      };
     case CartActionTypes.CLEAR_ITEM_FROM_CHART:
       return {
         ...state,
+        //filter vraca sve sto je true
+        //ovde kaze da ako se id koji hocemo da vratimo ne poklapa sa id koji hocemo da filterujemo onda vrati true
         cartItems: state.cartItems.filter(
           cartItem => cartItem.id != action.payload.id
         )
