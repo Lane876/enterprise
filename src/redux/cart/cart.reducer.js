@@ -30,7 +30,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         //filter vraca sve sto je true
         //ovde kaze da ako se id koji hocemo da vratimo ne poklapa sa id koji hocemo da filterujemo onda vrati true
         cartItems: state.cartItems.filter(
-          cartItem => cartItem.id != action.payload.id
+          cartItem => cartItem.id !== action.payload.id
         )
       };
     default:
