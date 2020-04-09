@@ -23,6 +23,10 @@
   margin: 0 7.5px 15px;
   overflow: hidden; //makes the image on hover when zooming to stay inside of its container
 
+  @media screen and (max-width: 800px) {
+    height: 200px;
+  }
+
   &:hover {
     cursor: pointer;
 
@@ -38,6 +42,10 @@
 
   &.large {
     height: 380px;
+
+    @media screen and (max-width: 800px) {
+      height: 200px;
+    }
   }
 
   &:first-child {
