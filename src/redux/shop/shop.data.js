@@ -122,7 +122,7 @@ const SHOP_DATA = {
     items: [
       {
         id: 18,
-        name: "Black Jean Shearling",
+        name: "Black Jean",
         imageUrl: "https://i.ibb.co/XzcwL5s/black-shearling.png",
         price: 125,
       },
