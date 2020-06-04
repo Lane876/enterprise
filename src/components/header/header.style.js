@@ -14,7 +14,6 @@ export const HeaderContainer = styled.div`
   margin-bottom: 25px;
 
   @media screen and (max-width: 800px) {
-    height: 70px;
     padding: 10px;
   }
 `;
@@ -39,6 +38,7 @@ export const OptionsContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     width: 80%;
+    font-size: 12px;
   }
 `;
 
